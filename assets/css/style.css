@@ -1,0 +1,23 @@
+body{
+    background-image: url("../images/leaves-pattern.png");
+    background-color: skyblue;
+
+}
+
+.card-body{
+
+background-color: rgb(204, 201, 201);
+
+}
+
+.btn{
+
+    margin: 5px;
+
+}
+
+#submit-button{
+
+   margin-top: 20px; 
+}
+
