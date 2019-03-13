@@ -24,46 +24,46 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <button type="button" class="btn btn-info">Nicolas Cage</button>
-        <button type="button" class="btn btn-info">Alpacas</button>
-        <button type="button" class="btn btn-info">Cats</button>
-        <button type="button" class="btn btn-info">Dogs</button>
-        <button type="button" class="btn btn-info">Nicolas Cage</button>
-        <button type="button" class="btn btn-info">Alpacas</button>
-        <button type="button" class="btn btn-info">Cats</button>
-        <button type="button" class="btn btn-info">Dogs</button>
-        <button type="button" class="btn btn-info">Nicolas Cage</button>
-        <button type="button" class="btn btn-info">Alpacas</button>
-        <button type="button" class="btn btn-info">Cats</button>
-        <button type="button" class="btn btn-info">Dogs</button>
+      <div class="col-md-12" id="buttonsDiv">
+        <button type="button" class="btn btn-info btn-gif">Nicolas Cage</button>
+        <button type="button" class="btn btn-info btn-gif">Alpacas</button>
+        <button type="button" class="btn btn-info btn-gif">Cats</button>
+        <button type="button" class="btn btn-info btn-gif">Dogs</button>
+        <button type="button" class="btn btn-info btn-gif">Nicolas Cage</button>
+        <button type="button" class="btn btn-info btn-gif">Alpacas</button>
+        <button type="button" class="btn btn-info btn-gif">Cats</button>
+        <button type="button" class="btn btn-info btn-gif">Dogs</button>
+        <button type="button" class="btn btn-info btn-gif">Nicolas Cage</button>
+        <button type="button" class="btn btn-info btn-gif">Alpacas</button>
+        <button type="button" class="btn btn-info btn-gif">Cats</button>
+        <button type="button" class="btn btn-info btn-gif">Dogs</button>
 
       </div>
     </div>
-      <div class="row">
-        <div class="col-md-8">
-         
-           
-         
-            
-          
-        </div>
-        <!--Create Card taking up 4 Columns-->
-        <div class="col-md-4">
-          <div class="card mt-2">
-            <div class="card-body">
-              <h5 class="card-title">Add an Animal</h5>
-              <form action="/action_page.php">
-                <input type="text" name="userInput">
-              </form>
+    <div class="row">
+      <div class="col-md-8" id="giphyDiv">
 
 
-              <button type="button" class="btn btn-info" id="submit-button">Submit</button>
-            </div>
+
+
+
+      </div>
+      <!--Create Card taking up 4 Columns-->
+      <div class="col-md-4">
+        <div class="card mt-2">
+          <div class="card-body">
+            <h5 class="card-title">Add an Animal</h5>
+            <form action="/action_page.php">
+              <input type="text" name="userInput" id="userInputBox">
+            </form>
+
+
+            <button type="button" class="btn btn-info" id="submit-button">Submit</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 
 
@@ -76,6 +76,81 @@
 
   <!-- Bootstrap JavaScript CDN -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <!-- My Javascript -->
+
+  <script type="text/javascript">
+
+
+
+    var userInputValue = "";
+    var buttonText = "";
+    var apiKey = "CzlzW5nF8zAC51ZwLMJ0UU2C3nUXBAJF";
+    var searchTerm = "";
+
+    // When the submit button is clicked
+
+    $("#submit-button").click(function () {
+
+      userInputValue = $("#userInputBox").val();
+      console.log(userInputValue);
+
+      $("#buttonsDiv").append("<button type='button' class='btn btn-info btn-gif'>" + userInputValue + "</button>");
+
+
+
+    });
+
+    //When the enter button is pressed
+
+    $(document).ready(function () {
+      $(window).keydown(function (event) {
+        if (event.keyCode == 13) {
+          event.preventDefault();
+
+          userInputValue = $("#userInputBox").val();
+          console.log(userInputValue);
+
+          $("#buttonsDiv").append("<button type='button' class='btn btn-info btn-gif'>" + userInputValue + "</button>");
+
+
+          return false;
+        }
+      });
+    });
+
+//On click for all divs including newly created divs
+
+    $(document.body).on("click",".btn-gif", function(event) {
+
+      buttonText = $(this).text();
+
+      console.log(buttonText);
+
+      var queryURL = "http://api.giphy.com/v1/gifs/search?q="+buttonText+"&api_key=CzlzW5nF8zAC51ZwLMJ0UU2C3nUXBAJF";
+
+        console.log(queryURL);
+
+        $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+        // After the data comes back from the API
+        .then(function(response) {
+          // Storing an array of results in the results variable
+          var results = response.data;
+
+          console.log(response);
+          // Looping over every result item
+        
+        });  
+      
+
+
+    });
+
+  </script>
+
 </body>
 
 </html>
