@@ -44,7 +44,7 @@
 
       console.log(buttonText);
 
-      var queryURL = "http://api.giphy.com/v1/gifs/search?q="+buttonText+"&api_key=CzlzW5nF8zAC51ZwLMJ0UU2C3nUXBAJF";
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q="+buttonText+"&api_key=CzlzW5nF8zAC51ZwLMJ0UU2C3nUXBAJF";
 
         console.log(queryURL);
 
