@@ -25,18 +25,21 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12" id="buttonsDiv">
-        <button type="button" class="btn btn-info btn-gif">Nicolas Cage</button>
-        <button type="button" class="btn btn-info btn-gif">Alpacas</button>
-        <button type="button" class="btn btn-info btn-gif">Cats</button>
-        <button type="button" class="btn btn-info btn-gif">Dogs</button>
-        <button type="button" class="btn btn-info btn-gif">Nicolas Cage</button>
-        <button type="button" class="btn btn-info btn-gif">Alpacas</button>
-        <button type="button" class="btn btn-info btn-gif">Cats</button>
-        <button type="button" class="btn btn-info btn-gif">Dogs</button>
-        <button type="button" class="btn btn-info btn-gif">Nicolas Cage</button>
-        <button type="button" class="btn btn-info btn-gif">Alpacas</button>
-        <button type="button" class="btn btn-info btn-gif">Cats</button>
-        <button type="button" class="btn btn-info btn-gif">Dogs</button>
+        <button type="button" class="btn btn-info btn-gif">Alpaca</button>
+        <button type="button" class="btn btn-info btn-gif">Cat</button>
+        <button type="button" class="btn btn-info btn-gif">Dog</button>
+        <button type="button" class="btn btn-info btn-gif">Bird</button>
+        <button type="button" class="btn btn-info btn-gif">Kangaroo</button>
+        <button type="button" class="btn btn-info btn-gif">Lion</button>
+        <button type="button" class="btn btn-info btn-gif">Bear</button>
+        <button type="button" class="btn btn-info btn-gif">Panda</button>
+        <button type="button" class="btn btn-info btn-gif">Cheeta</button>
+        <button type="button" class="btn btn-info btn-gif">Horse</button>
+        <button type="button" class="btn btn-info btn-gif">Monkey</button>
+        <button type="button" class="btn btn-info btn-gif">Deer</button>
+        <button type="button" class="btn btn-info btn-gif">Coyote</button>
+        <button type="button" class="btn btn-info btn-gif">Elephant</button>
+        <button type="button" class="btn btn-info btn-gif">Dolphin</button>
 
       </div>
     </div>
@@ -79,77 +82,7 @@
 
   <!-- My Javascript -->
 
-  <script type="text/javascript">
-
-
-
-    var userInputValue = "";
-    var buttonText = "";
-    var apiKey = "CzlzW5nF8zAC51ZwLMJ0UU2C3nUXBAJF";
-    var searchTerm = "";
-
-    // When the submit button is clicked
-
-    $("#submit-button").click(function () {
-
-      userInputValue = $("#userInputBox").val();
-      console.log(userInputValue);
-
-      $("#buttonsDiv").append("<button type='button' class='btn btn-info btn-gif'>" + userInputValue + "</button>");
-
-
-
-    });
-
-    //When the enter button is pressed
-
-    $(document).ready(function () {
-      $(window).keydown(function (event) {
-        if (event.keyCode == 13) {
-          event.preventDefault();
-
-          userInputValue = $("#userInputBox").val();
-          console.log(userInputValue);
-
-          $("#buttonsDiv").append("<button type='button' class='btn btn-info btn-gif'>" + userInputValue + "</button>");
-
-
-          return false;
-        }
-      });
-    });
-
-//On click for all divs including newly created divs
-
-    $(document.body).on("click",".btn-gif", function(event) {
-
-      buttonText = $(this).text();
-
-      console.log(buttonText);
-
-      var queryURL = "http://api.giphy.com/v1/gifs/search?q="+buttonText+"&api_key=CzlzW5nF8zAC51ZwLMJ0UU2C3nUXBAJF";
-
-        console.log(queryURL);
-
-        $.ajax({
-        url: queryURL,
-        method: "GET"
-      })
-        // After the data comes back from the API
-        .then(function(response) {
-          // Storing an array of results in the results variable
-          var results = response.data;
-
-          console.log(response);
-          // Looping over every result item
-        
-        });  
-      
-
-
-    });
-
-  </script>
+  <script type="text/javascript" src="assets/javascript/javascript.js"></script>
 
 </body>
 

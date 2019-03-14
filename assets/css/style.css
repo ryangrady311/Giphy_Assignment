@@ -21,3 +21,19 @@ background-color: rgb(204, 201, 201);
    margin-top: 20px; 
 }
 
+.ryansGifs{
+
+margin: 10px;
+
+}
+
+figure{
+
+    float: left;
+}
+
+figcaption {
+
+    margin-left: 15px;
+
+}
